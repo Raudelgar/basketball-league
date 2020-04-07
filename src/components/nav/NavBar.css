@@ -1,0 +1,16 @@
+.navbar {
+	font-size: 0.9rem;
+	text-transform: uppercase;
+	flex: 1;
+	display: flex;
+	justify-content: space-between;
+	font-weight: bold;
+}
+
+nav {
+	display: block;
+}
+
+.nav-links a {
+	padding: 0 10px;
+}
