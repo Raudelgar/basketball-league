@@ -3,12 +3,6 @@
 	margin: 70px 0;
 }
 
-.header {
-	margin: 20px 0;
-	font-weight: 400;
-	font-size: 1.5rem;
-}
-
 .home-grid {
 	display: flex;
 	flex-direction: row;

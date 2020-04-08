@@ -22,14 +22,14 @@ code {
 		monospace;
 }
 
-ul {
+/* ul {
 	list-style-type: none;
-}
+} */
 
-li {
+/* li {
 	list-style: none;
 	text-decoration: none;
-}
+} */
 
 a {
 	text-decoration: none;
@@ -46,4 +46,34 @@ a {
 
 .text-center {
 	text-align: center;
+}
+
+.two-column {
+	display: flex;
+}
+
+.header {
+	margin: 20px 0;
+	font-weight: 400;
+	font-size: 2rem;
+}
+
+.sidebar-list {
+	display: flex;
+	flex-direction: column;
+	padding: 0;
+}
+
+.sidebar-item {
+	font-weight: 400;
+	text-transform: uppercase;
+	list-style-type: none;
+	margin: 3px 0;
+}
+
+.sidebar-instructions {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex: 1 1;
 }

@@ -3,7 +3,7 @@ import {
 	players,
 	generateArticle,
 	generateTeamsArticles
-} from './dummy-data';
+} from '../dummy-data.js';
 
 let cachedPlayers = null;
 let cachedTeams = {};
@@ -24,7 +24,7 @@ export function getPlayers(teamId) {
 }
 
 export function getTeam(teamId) {
-	return new Promise(resove => {
+	return new Promise(resolve => {
 		if (typeof cachedTeams[teamId] === 'undefined') {
 			cachedTeams[teamId] = teams[teamId];
 			return setTimeout(() => resolve(cachedTeams[teamId]), 800);

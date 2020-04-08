@@ -5,6 +5,8 @@ import './App.css';
 
 import NavBar from './components/nav/NavBar.js';
 import Home from './components/pages/home-page/Home.js';
+import Players from './components/pages/players/Players.js';
+import Teams from './components/pages/teams/Teams.js';
 
 function App() {
 	return (
@@ -14,6 +16,8 @@ function App() {
 			</div>
 			<Switch>
 				<Route exact path='/' component={Home} />
+				<Route path='/players' component={Players} />
+				<Route path='/teams' component={Teams} />
 			</Switch>
 		</Router>
 	);
