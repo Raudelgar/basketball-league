@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import { getTeamNames } from '../../../api/api.js';
+
 import Loader from '../../loader/Loader.js';
+import Sidebar from '../../sidebar/Sidebar.js';
 
 export default class Teams extends React.Component {
 	constructor(props) {
@@ -28,16 +29,7 @@ export default class Teams extends React.Component {
 				{isLoading && <Loader label='Loading Teams' />}
 				{!isLoading && (
 					<>
-						<div>
-							<h3 className='header'>{header}</h3>
-							<ul className='sidebar-list'>
-								{teams.map(team => (
-									<li key={team} className='sidebar-item'>
-										<Link to={`${match.url}/${team}`}>{team}</Link>
-									</li>
-								))}
-							</ul>
-						</div>
+						<Sidebar match={match} header={header} sideItems={teams} />
 						<div className='sidebar-instructions'>Select a Team</div>
 					</>
 				)}
