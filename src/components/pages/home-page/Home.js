@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import './Home.css';
 import { getTeamNames } from '../../../api/api.js';
 import Loader from '../../loader/Loader.js';
+import TeamsLogo from '../../team-logo/TeamsLogo.js';
 
 export default class Home extends React.Component {
 	constructor(props) {
@@ -34,7 +35,7 @@ export default class Home extends React.Component {
 						<div className='home-grid'>
 							{teams.map(team => (
 								<Link key={team} to={`/${team}`}>
-									{team}
+									<TeamsLogo id={team} width='125px' />
 								</Link>
 							))}
 						</div>

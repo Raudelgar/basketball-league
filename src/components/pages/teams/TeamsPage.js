@@ -5,7 +5,7 @@ import { getTeamNames } from '../../../api/api.js';
 import Loader from '../../loader/Loader.js';
 import Sidebar from '../../sidebar/Sidebar.js';
 
-export default class Teams extends React.Component {
+export default class TeamsPage extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
