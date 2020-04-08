@@ -1,9 +1,11 @@
 import React from 'react';
+import { Link, Route, Switch } from 'react-router-dom';
 
 import { getTeamNames } from '../../../api/api.js';
 
 import Loader from '../../loader/Loader.js';
 import Sidebar from '../../sidebar/Sidebar.js';
+import Team from './Team.js';
 
 export default class TeamsPage extends React.Component {
 	constructor(props) {
@@ -30,7 +32,6 @@ export default class TeamsPage extends React.Component {
 				{!isLoading && (
 					<>
 						<Sidebar match={match} header={header} sideItems={teams} />
-						<div className='sidebar-instructions'>Select a Team</div>
 					</>
 				)}
 			</div>

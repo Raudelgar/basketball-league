@@ -19,6 +19,18 @@ export default class Team extends React.Component {
 	}
 
 	componentDidMount() {
+		console.log('--componentDidMount/Team');
+		this.updateTeam();
+	}
+
+	componentDidUpdate(prevProps, prevState) {
+		if (prevProps.match.params.id !== this.props.match.params.id) {
+			console.log('--componentDidUpdate/Team');
+			this.updateTeam();
+		}
+	}
+
+	updateTeam = () => {
 		const { id } = this.props.match.params;
 		getTeam(id)
 			.then(data => this.setState({ team: data }))
@@ -35,11 +47,12 @@ export default class Team extends React.Component {
 					.catch(error => console.log(error));
 			})
 			.catch(error => console.log(error));
-	}
+	};
 
 	render() {
 		const { team, teamArticles, isLoading } = this.state;
 		const { match } = this.props;
+		console.log('--render/Team');
 		return (
 			<div className='panel'>
 				{isLoading && <Loader label='Loading Team' />}
