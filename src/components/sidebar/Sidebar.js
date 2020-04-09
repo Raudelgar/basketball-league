@@ -1,32 +1,65 @@
 import React from 'react';
-import { NavLink, Route, Switch } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
+import slug from 'slug';
 
-import Team from '../pages/teams/Team.js';
+import Loader from '../loader/Loader.js';
 
-export default function Sidebar({ match, header, sideItems }) {
+function CustomLink({ to, label }) {
+	return (
+		<Route
+			path={to.pathname}
+			children={({ match }) => (
+				<li
+					className='sidebar-item '
+					style={{
+						fontWeight: match ? 'bold' : 'normal'
+					}}
+				>
+					<Link to={to}>{label}</Link>
+				</li>
+			)}
+		/>
+	);
+}
+
+export default function Sidebar({
+	isLoading,
+	header,
+	sideItems,
+	match,
+	location
+}) {
 	return (
 		<>
-			<div>
-				<h3 className='header'>{header}</h3>
-				<ul className='sidebar-list'>
-					{sideItems.map(name => (
-						<li key={name} className='sidebar-item'>
-							<NavLink
-								to={`${match.url}/${name}`}
-								activeStyle={{ fontWeight: 'bold' }}
-							>
-								{name}
-							</NavLink>
-						</li>
-					))}
-				</ul>
-			</div>
-			<Route
-				exact
-				path={`${match.path}`}
-				render={() => <div className='sidebar-instructions'>Select a Team</div>}
-			/>
-			<Route path={`${match.path}/:id`} component={Team} />
+			{isLoading && <Loader label={`Loading ${header}`} />}
+			{!isLoading && (
+				<>
+					<div>
+						<h3 className='header'>{header}</h3>
+						<ul className='sidebar-list'>
+							{sideItems.map(name => (
+								<CustomLink
+									key={name}
+									to={{
+										pathname: `${match.url}/${slug(name)}`,
+										search: location.search
+									}}
+									label={name.toUpperCase()}
+								/>
+							))}
+						</ul>
+					</div>
+					<Route
+						exact
+						path={`${match.path}`}
+						render={() => (
+							<div className='sidebar-instructions'>
+								{`Select a ${header.slice(0, header.lastIndexOf('s'))}`}
+							</div>
+						)}
+					/>
+				</>
+			)}
 		</>
 	);
 }

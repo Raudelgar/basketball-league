@@ -1,11 +1,9 @@
 import React from 'react';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 import { getTeamNames } from '../../../api/api.js';
-
-import Loader from '../../loader/Loader.js';
 import Sidebar from '../../sidebar/Sidebar.js';
-import Team from './Team.js';
+import AllTeams from './AllTeams.js';
 
 export default class TeamsPage extends React.Component {
 	constructor(props) {
@@ -28,12 +26,13 @@ export default class TeamsPage extends React.Component {
 		const { match } = this.props;
 		return (
 			<div className='container two-column'>
-				{isLoading && <Loader label='Loading Teams' />}
-				{!isLoading && (
-					<>
-						<Sidebar match={match} header={header} sideItems={teams} />
-					</>
-				)}
+				<Sidebar
+					isLoading={isLoading}
+					header={header}
+					sideItems={teams}
+					{...this.props}
+				/>
+				<Route path={`${match.path}/:id`} component={AllTeams} />
 			</div>
 		);
 	}

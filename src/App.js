@@ -6,9 +6,9 @@ import './App.css';
 // import Loader from './components/loader/Loader.js';
 import NavBar from './components/nav/NavBar.js';
 import Home from './components/pages/home-page/Home.js';
-import Players from './components/pages/players/Players.js';
+import PlayersPage from './components/pages/players/PlayersPage.js';
 import TeamsPage from './components/pages/teams/TeamsPage.js';
-import Team from './components/pages/teams/Team.js';
+import AllTeams from './components/pages/teams/AllTeams.js';
 
 class App extends React.Component {
 	render() {
@@ -18,9 +18,9 @@ class App extends React.Component {
 					<NavBar />
 					<Switch>
 						<Route exact path='/' component={Home} />
-						<Route path='/players' component={Players} />
+						<Route path='/players' component={PlayersPage} />
 						<Route path='/teams' component={TeamsPage} />
-						<Route path='/:id' component={Team} />
+						<Route path='/:id' component={AllTeams} />
 						<Route
 							render={() => (
 								<div>
