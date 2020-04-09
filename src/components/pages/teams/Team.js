@@ -13,7 +13,7 @@ export default function Team({ isLoading, team, teamArticles, match }) {
 					<TeamsLogo id={team.id} />
 					<h1 className='medium-header'>{team.name}</h1>
 					<h4 style={{ margin: '5px' }}>
-						<Link to={`/players?teamid=${team.id}`}>View Roster</Link>
+						<Link to={`/players?teamId=${team.id}`}>View Roster</Link>
 					</h4>
 					<h4 style={{ margin: '20px 0' }}>Campionships</h4>
 					<ul className='championships'>

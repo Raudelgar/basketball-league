@@ -4,6 +4,7 @@ import { parse } from 'query-string';
 
 import { getPlayers } from '../../../api/api.js';
 import Sidebar from '../../sidebar/Sidebar.js';
+import AllPlayers from './AllPlayers.js';
 
 export default class Players extends React.Component {
 	constructor(props) {
@@ -46,11 +47,17 @@ export default class Players extends React.Component {
 		const { match } = this.props;
 		return (
 			<div className='container two-column'>
-				<Sidebar
-					isLoading={isLoading}
-					header={header}
-					sideItems={players.map(player => player.name)}
-					{...this.props}
+				<div>
+					<Sidebar
+						isLoading={isLoading}
+						header={header}
+						sideItems={players.map(player => player.name)}
+						{...this.props}
+					/>
+				</div>
+				<Route
+					path={`${match.path}/:id`}
+					render={props => <AllPlayers {...props} players={players} />}
 				/>
 			</div>
 		);
