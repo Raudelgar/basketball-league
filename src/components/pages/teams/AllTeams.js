@@ -27,6 +27,7 @@ export default class AllTeams extends React.Component {
 
 	updateTeam = () => {
 		const { id } = this.props.match.params;
+
 		getTeam(id)
 			.then(data => this.setState({ team: data }))
 			.then(() => {

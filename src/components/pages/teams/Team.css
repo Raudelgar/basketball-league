@@ -29,3 +29,17 @@
 .article-date {
 	font-size: 0.9rem;
 }
+
+.center {
+	display: block;
+	margin: 0 auto;
+}
+
+.btn-main {
+	max-width: 210px;
+	min-width: 150px;
+	padding: 10px;
+	border: 2px solid #000;
+	color: #000;
+	text-align: center;
+}

@@ -5,7 +5,7 @@ import slug from 'slug';
 
 import { getPlayers } from '../../../api/api.js';
 import Sidebar from '../../sidebar/Sidebar.js';
-import AllPlayers from './AllPlayers.js';
+// import AllPlayers from './AllPlayers.js';
 import Player from './Player.js';
 
 export default class Players extends React.Component {
