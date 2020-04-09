@@ -5,7 +5,6 @@ import './Player.css';
 import Loader from '../../loader/Loader.js';
 
 export default function Player({ isLoading, player, match }) {
-	console.log(player);
 	return (
 		<div className='panel'>
 			{isLoading && <Loader label='Loading Player' />}

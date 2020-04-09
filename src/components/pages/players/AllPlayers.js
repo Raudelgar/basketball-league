@@ -13,14 +13,10 @@ export default class AllPlayers extends React.Component {
 	}
 
 	componentDidMount() {
-		console.log('--componentDidMount/AllPlayers--');
 		this.findPlayer();
 	}
 
 	componentDidUpdate(prevProps, prevState) {
-		console.log('--componentDidUpdate/AllPlayers--');
-		// console.log(prevProps);
-		// console.log(this.props);
 		if (prevProps.match.params.id !== this.props.match.params.id) {
 			this.findPlayer();
 		}

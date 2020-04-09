@@ -56,6 +56,13 @@ export default class Players extends React.Component {
 					/>
 				</div>
 				<Route
+					exact
+					path={`${match.path}`}
+					render={() => (
+						<div className='sidebar-instructions'>Select a Player</div>
+					)}
+				/>
+				<Route
 					path={`${match.path}/:id`}
 					render={props => <AllPlayers {...props} players={players} />}
 				/>

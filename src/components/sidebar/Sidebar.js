@@ -49,15 +49,6 @@ export default function Sidebar({
 							))}
 						</ul>
 					</div>
-					<Route
-						exact
-						path={`${match.path}`}
-						render={() => (
-							<div className='sidebar-instructions'>
-								{`Select a ${header.slice(0, header.lastIndexOf('s'))}`}
-							</div>
-						)}
-					/>
 				</>
 			)}
 		</>

@@ -32,6 +32,13 @@ export default class TeamsPage extends React.Component {
 					sideItems={teams}
 					{...this.props}
 				/>
+				<Route
+					exact
+					path={`${match.path}`}
+					render={() => (
+						<div className='sidebar-instructions'>Select a Team</div>
+					)}
+				/>
 				<Route path={`${match.path}/:id`} component={AllTeams} />
 			</div>
 		);
