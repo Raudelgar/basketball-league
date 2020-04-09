@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, Route } from 'react-router-dom';
 import slug from 'slug';
 
-import Loader from '../loader/Loader.js';
+// import Loader from '../loader/Loader.js';
 
 function CustomLink({ to, label }) {
 	return (
@@ -31,7 +31,7 @@ export default function Sidebar({
 }) {
 	return (
 		<>
-			{isLoading && <Loader label={`Loading ${header}`} />}
+			{/* {isLoading && <Loader label={`Loading ${header}`} />} */}
 			{!isLoading && (
 				<>
 					<div>
