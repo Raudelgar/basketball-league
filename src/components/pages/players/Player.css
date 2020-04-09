@@ -1,0 +1,9 @@
+.avatar {
+	width: 200px;
+	border-radius: 100%;
+}
+
+.player-team {
+	text-transform: capitalize;
+	color: #5c82b1;
+}

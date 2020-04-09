@@ -1,0 +1,31 @@
+.championships {
+	display: flex;
+	margin: 0;
+	padding: 0;
+}
+
+.championships li {
+	list-style-type: none;
+	margin: 0 10px;
+}
+
+.articles {
+	margin: 0;
+	padding: 0;
+}
+
+.articles li {
+	list-style-type: none;
+	font-size: 1.2rem;
+	margin-bottom: 30px;
+	cursor: pointer;
+}
+
+.article-tile {
+	font-size: 1.5rem;
+	font-weight: 400;
+}
+
+.article-date {
+	font-size: 0.9rem;
+}

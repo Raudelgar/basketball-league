@@ -1,0 +1,21 @@
+.loader {
+	text-align: center;
+	width: 100%;
+	font-weight: 500;
+}
+
+.loader::after {
+	content: '\2026';
+	display: inline-block;
+	vertical-align: bottom;
+	overflow: hidden;
+	width: 0;
+	color: inherit;
+	animation: dots steps(4, end) 3s infinite;
+}
+
+@keyframes dots {
+	to {
+		width: 1.2em;
+	}
+}
