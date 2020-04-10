@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, Route } from 'react-router-dom';
 import slug from 'slug';
+import PropTypes from 'prop-types';
 
 // import Loader from '../loader/Loader.js';
 
@@ -57,3 +58,10 @@ export default function Sidebar({
 		</>
 	);
 }
+
+Sidebar.propTypes = {
+	isLoading: PropTypes.bool.isRequired,
+	header: PropTypes.string.isRequired,
+	sideItems: PropTypes.array.isRequired,
+	articlePath: PropTypes.string
+};

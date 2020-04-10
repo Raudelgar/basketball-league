@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import slug from 'slug';
+import PropTypes from 'prop-types';
 
 import Loader from '../../loader/Loader.js';
 import TeamsLogo from '../../team-logo/TeamsLogo.js';
@@ -108,3 +109,9 @@ export default function Team({
 		</>
 	);
 }
+
+Team.propTypes = {
+	isLoading: PropTypes.bool.isRequired,
+	team: PropTypes.object.isRequired,
+	teamArticles: PropTypes.array
+};

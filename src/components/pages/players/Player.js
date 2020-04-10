@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import './Player.css';
 import Loader from '../../loader/Loader.js';
@@ -54,3 +55,8 @@ export default function Player({ isLoading, player, match }) {
 		</div>
 	);
 }
+
+Player.propTypes = {
+	isLoading: PropTypes.bool.isRequired,
+	player: PropTypes.object.isRequired
+};

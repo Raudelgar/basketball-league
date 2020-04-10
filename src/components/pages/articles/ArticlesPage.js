@@ -3,7 +3,6 @@ import { Route } from 'react-router-dom';
 
 import { getArticle, getTeamsArticles } from '../../../api/api.js';
 import Loader from '../../loader/Loader.js';
-// import Article from './Article.js';
 
 import './Article.css';
 
