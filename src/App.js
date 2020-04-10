@@ -9,6 +9,7 @@ import Home from './components/pages/home-page/Home.js';
 import PlayersPage from './components/pages/players/PlayersPage.js';
 import TeamsPage from './components/pages/teams/TeamsPage.js';
 import AllTeams from './components/pages/teams/AllTeams.js';
+import ArticlesPage from './components/pages/articles/ArticlesPage.js';
 
 class App extends React.Component {
 	render() {
@@ -20,7 +21,8 @@ class App extends React.Component {
 						<Route exact path='/' component={Home} />
 						<Route path='/players' component={PlayersPage} />
 						<Route path='/teams' component={TeamsPage} />
-						<Route path='/:id' component={AllTeams} />
+						<Route exact path='/:id' component={AllTeams} />
+						<Route path='/:id/articles/:articleId' component={ArticlesPage} />
 						<Route
 							render={() => (
 								<div>

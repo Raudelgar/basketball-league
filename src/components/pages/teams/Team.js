@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import slug from 'slug';
 
 import Loader from '../../loader/Loader.js';
 import TeamsLogo from '../../team-logo/TeamsLogo.js';
@@ -9,7 +10,14 @@ const teamPage = (team, teamArticles, match) => (
 		<TeamsLogo id={team.id} />
 		<h1 className='medium-header'>{team.name}</h1>
 		<h4 style={{ margin: '5px' }}>
-			<Link to={`/players?teamId=${team.id}`}>View Roster</Link>
+			<Link
+				to={{
+					pathname: '/players',
+					search: `?teamId=${team.id}`
+				}}
+			>
+				View Roster
+			</Link>
 		</h4>
 		<h4 style={{ margin: '20px 0' }}>Campionships</h4>
 		<ul className='championships'>
@@ -41,7 +49,13 @@ const teamPage = (team, teamArticles, match) => (
 		<ul className='articles'>
 			{teamArticles.map(article => (
 				<li key={article.id}>
-					<Link to={`${match.url}/${article.id}`}>
+					{/* <Link to={`${match.url}/articles/${slug(article.title)}`}> */}
+					<Link
+						to={{
+							pathname: `${match.url}/articles/${slug(article.title)}`,
+							state: { from: 'articles' }
+						}}
+					>
 						<h4 className='article-tile'>{article.title}</h4>
 						<div className='article-date'>
 							{article.date.toLocaleDateString()}

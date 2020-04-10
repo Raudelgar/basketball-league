@@ -26,6 +26,7 @@ export default function Sidebar({
 	isLoading,
 	header,
 	sideItems,
+	articlePath,
 	match,
 	location
 }) {
@@ -41,7 +42,9 @@ export default function Sidebar({
 								<CustomLink
 									key={name}
 									to={{
-										pathname: `${match.url}/${slug(name)}`,
+										pathname: articlePath
+											? `${articlePath}/${slug(name)}`
+											: `${match.url}/${slug(name)}`,
 										search: location.search
 									}}
 									label={name.toUpperCase()}
