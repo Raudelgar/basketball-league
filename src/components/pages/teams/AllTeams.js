@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 
 import { getTeam, getTeamsArticles } from '../../../api/api.js';
 import Team from './Team.js';
@@ -27,9 +28,14 @@ export default class AllTeams extends React.Component {
 
 	updateTeam = () => {
 		const { id } = this.props.match.params;
+
 		getTeam(id)
 			.then(data => this.setState({ team: data }))
 			.then(() => {
+				if (!this.state.team) {
+					return null;
+				}
+
 				let { id } = this.state.team;
 				getTeamsArticles(id)
 					.then(data => {
@@ -45,16 +51,21 @@ export default class AllTeams extends React.Component {
 
 	render() {
 		const { team, teamArticles, isLoading } = this.state;
-
 		return (
-			<div className='panel'>
-				<Team
-					isLoading={isLoading}
-					team={team}
-					teamArticles={teamArticles}
-					{...this.props}
-				/>
-			</div>
+			<>
+				{team === undefined ? (
+					<Redirect to='/' />
+				) : (
+					<div className='panel'>
+						<Team
+							isLoading={isLoading}
+							team={team}
+							teamArticles={teamArticles}
+							{...this.props}
+						/>
+					</div>
+				)}
+			</>
 		);
 	}
 }

@@ -23,7 +23,7 @@ export default class TeamsPage extends React.Component {
 
 	render() {
 		const { header, teams, isLoading } = this.state;
-		const { match } = this.props;
+		const { match, location } = this.props;
 		return (
 			<div className='container two-column'>
 				<Sidebar
@@ -32,13 +32,9 @@ export default class TeamsPage extends React.Component {
 					sideItems={teams}
 					{...this.props}
 				/>
-				<Route
-					exact
-					path={`${match.path}`}
-					render={() => (
-						<div className='sidebar-instructions'>Select a Team</div>
-					)}
-				/>
+				{!isLoading && location.pathname === `${match.path}` && (
+					<div className='sidebar-instructions'>Select a Team</div>
+				)}
 				<Route path={`${match.path}/:id`} component={AllTeams} />
 			</div>
 		);

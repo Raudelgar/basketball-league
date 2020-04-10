@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link, Route } from 'react-router-dom';
 import slug from 'slug';
+import PropTypes from 'prop-types';
 
-import Loader from '../loader/Loader.js';
+// import Loader from '../loader/Loader.js';
 
 function CustomLink({ to, label }) {
 	return (
@@ -26,12 +27,13 @@ export default function Sidebar({
 	isLoading,
 	header,
 	sideItems,
+	articlePath,
 	match,
 	location
 }) {
 	return (
 		<>
-			{isLoading && <Loader label={`Loading ${header}`} />}
+			{/* {isLoading && <Loader label={`Loading ${header}`} />} */}
 			{!isLoading && (
 				<>
 					<div>
@@ -41,7 +43,9 @@ export default function Sidebar({
 								<CustomLink
 									key={name}
 									to={{
-										pathname: `${match.url}/${slug(name)}`,
+										pathname: articlePath
+											? `${articlePath}/${slug(name)}`
+											: `${match.url}/${slug(name)}`,
 										search: location.search
 									}}
 									label={name.toUpperCase()}
@@ -54,3 +58,10 @@ export default function Sidebar({
 		</>
 	);
 }
+
+Sidebar.propTypes = {
+	isLoading: PropTypes.bool.isRequired,
+	header: PropTypes.string.isRequired,
+	sideItems: PropTypes.array.isRequired,
+	articlePath: PropTypes.string
+};

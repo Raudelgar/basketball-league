@@ -1,0 +1,10 @@
+.article {
+	margin: 20px;
+	padding: 20px;
+}
+
+p {
+	line-height: 1.7;
+	font-size: 1.2rem;
+	font-weight: 500;
+}
