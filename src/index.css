@@ -125,5 +125,5 @@ a {
 }
 
 .fade-exit {
-	display: none;
+	display: contents;
 }

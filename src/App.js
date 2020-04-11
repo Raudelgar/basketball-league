@@ -2,14 +2,15 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import './App.css';
-
-// import Loader from './components/loader/Loader.js';
 import NavBar from './components/nav/NavBar.js';
-import Home from './components/pages/home-page/Home.js';
-import PlayersPage from './components/pages/players/PlayersPage.js';
-import TeamsPage from './components/pages/teams/TeamsPage.js';
-import AllTeams from './components/pages/teams/AllTeams.js';
-import ArticlesPage from './components/pages/articles/ArticlesPage.js';
+
+import {
+	Home,
+	PlayersPage,
+	TeamsPage,
+	AllTeams,
+	ArticlesPage
+} from './components/dynamic-import/modules.js';
 
 function App() {
 	return (

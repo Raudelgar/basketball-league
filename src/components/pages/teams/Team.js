@@ -112,6 +112,6 @@ export default function Team({
 
 Team.propTypes = {
 	isLoading: PropTypes.bool.isRequired,
-	team: PropTypes.object.isRequired,
+	team: PropTypes.object,
 	teamArticles: PropTypes.array
 };
