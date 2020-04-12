@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, Prompt } from 'react-router-dom';
 import slug from 'slug';
 import PropTypes from 'prop-types';
 
@@ -99,6 +99,21 @@ export default function Team({
 	match,
 	location
 }) {
+	//Doesn't work
+	useEffect(() => {
+		return function() {
+			console.log('useEffect clean up');
+			return (
+				<Prompt
+					when={true}
+					message={location =>
+						console.log(location) || `Are sure you want to leave?`
+					}
+				/>
+			);
+		};
+	}, []);
+
 	return (
 		<>
 			{isLoading && <Loader label='Loading Team' />}
